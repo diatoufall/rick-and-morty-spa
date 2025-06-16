@@ -1,1 +1,28 @@
-<p>characters-list works!</p>
+<div class="container">
+  <h2>Liste des Personnages</h2>
+
+  @if (loading) {
+    <p>Chargement en cours...</p>
+  }
+
+  @if (error) {
+    <div class="error">{{ error }}</div>
+  }
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (character of characters; track character.id) {
+        <tr>
+          <td>{{ character.id }}</td>
+          <td>{{ character.name }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
