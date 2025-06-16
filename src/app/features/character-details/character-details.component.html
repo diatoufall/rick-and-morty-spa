@@ -1,1 +1,31 @@
-<p>character-details works!</p>
+<div class="container">
+  <h2>Détails du Personnage</h2>
+
+  <div class="search-container">
+    <input 
+      type="number" 
+      [(ngModel)]="characterId" 
+      placeholder="Entrez l'ID du personnage"
+      min="1"
+    >
+    <button (click)="searchCharacter()">Rechercher</button>
+  </div>
+
+  @if (error) {
+    <div class="error">{{ error }}</div>
+  }
+
+  @if (character) {
+    <div class="character-card">
+      <img [src]="character.image" [alt]="character.name">
+      <div class="character-info">
+        <h3>{{ character.name }}</h3>
+        <p><strong>Statut:</strong> {{ character.status }}</p>
+        <p><strong>Espèce:</strong> {{ character.species }}</p>
+        <p><strong>Genre:</strong> {{ character.gender }}</p>
+        <p><strong>Origine:</strong> {{ character.origin.name }}</p>
+        <p><strong>Localisation:</strong> {{ character.location.name }}</p>
+      </div>
+    </div>
+  }
+</div>
